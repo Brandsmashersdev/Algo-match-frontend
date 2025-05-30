@@ -49,13 +49,13 @@ const PayAfterPlacement: React.FC = () => {
   const salaryTiers = [
     {
       category: "A",
-      range: "< 3 LPA",
+      range: "< 5 LPA",
       fee: "No amount needs to be paid.",
       
     },
     {
       category: "B",
-      range: "> 3 LPA", 
+      range: "> 5 LPA", 
       fee: "Pay 1 month of Salary",
       
     }

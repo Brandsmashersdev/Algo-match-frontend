@@ -117,7 +117,7 @@ const Footer = () => {
                   <div className="space-y-2 sm:space-y-3">
                     <div className="flex items-center justify-center sm:justify-start space-x-2 sm:space-x-3">
                       <Mail className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" style={{ color: '#e63852' }} />
-                      <span className="text-gray-300 text-xs sm:text-sm break-all">info@techplacement.com</span>
+                      <span className="text-gray-300 text-xs sm:text-sm break-all">info@algomatch.in</span>
                     </div>
                     <div className="flex items-center justify-center sm:justify-start space-x-2 sm:space-x-3">
                       <Phone className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" style={{ color: '#e63852' }} />

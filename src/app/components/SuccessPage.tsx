@@ -1,27 +1,27 @@
 import React, {useEffect, useState} from 'react'
 
 const SuccessPage = () => {
-  const [counts, setCounts] = useState({
+ const [counts, setCounts] = useState({
     placements: 0,
     salaryHike: 0,
     partners: 0,
     completion: 0
   });
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCounts(prevCounts => {
         const newCounts = { ...prevCounts };
-        if (newCounts.placements < 5000) newCounts.placements += 50;
+        if (newCounts.placements < 100) newCounts.placements += 2;
         if (newCounts.salaryHike < 85) newCounts.salaryHike += 1;
-        if (newCounts.partners < 200) newCounts.partners += 2;
-        if (newCounts.completion < 95) newCounts.completion += 1;
-        
-        if (newCounts.placements >= 5000 && newCounts.salaryHike >= 85 &&
-            newCounts.partners >= 200 && newCounts.completion >= 95) {
+        if (newCounts.partners < 50) newCounts.partners += 1;
+        if (newCounts.completion < 99) newCounts.completion += 1;
+
+        if (newCounts.placements >= 50 && newCounts.salaryHike >= 85 &&
+            newCounts.partners >= 50 && newCounts.completion >= 99) {
           clearInterval(interval);
         }
-        
+
         return newCounts;
       });
     }, 30);
@@ -117,7 +117,7 @@ const SuccessPage = () => {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8">
               <div className="flex items-center text-gray-300 text-sm sm:text-base md:text-lg">
                 <span className="text-green-500 mr-2 text-base sm:text-lg">✓</span>
-                100% Job Guarantee
+                99.8% Job Guarantee
               </div>
               <div className="flex items-center text-gray-300 text-sm sm:text-base md:text-lg">
                 <span className="text-green-500 mr-2 text-base sm:text-lg">✓</span>

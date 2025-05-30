@@ -23,7 +23,7 @@ const AlgoMatchFAQ = () => {
     },
     {
       question: "Who will provide the training and mentorship?",
-      answer: "Experienced industry professionals from Brandsmashers and partner companies will mentor and guide you throughout the journey."
+      answer: "Experienced professionals from leading companies will mentor and guide you throughout the journey. You'll be trained by experts with hands-on experience in IT services, product development, fintech, healthcare and logistics."
     }
   ];
 
