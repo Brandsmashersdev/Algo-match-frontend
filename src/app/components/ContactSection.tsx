@@ -9,6 +9,7 @@ const ContactSection = () => {
     graduationYear: '',
     specialization: '',
     totalExperienceYears: '',
+    resume: '',
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -18,49 +19,84 @@ const ContactSection = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
 
-    // Convert numeric fields before sending to backend
-    const payload = {
-      ...formData,
-      graduationYear: Number(formData.graduationYear),
-      totalExperienceYears: Number(formData.totalExperienceYears),
-      dob: new Date(formData.dob), // make sure backend accepts ISO string or Date object
-    };
+ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
+  const {
+    name,
+    email,
+    dob,
+    phone,
+    graduationYear,
+    specialization,
+    totalExperienceYears,
+    resume,
+  } = formData;
+
+  // Basic validation
+  if (!name || !email || !dob || !phone || !graduationYear || !specialization || !totalExperienceYears || !resume) {
+    alert('Please fill in all required fields, including your resume link.');
+    return;
+  }
+
+  // Optional: Basic resume link format check
+  const isValidURL = (url: string) => {
     try {
-      const response = await fetch('https://algo-backend-vqqj.onrender.com/api/leads/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        alert(`Failed to save lead: ${data.message || response.statusText}`);
-        return;
-      }
-
-      alert('Lead saved successfully!');
-      // Optionally clear form here
-      setFormData({
-        name: '',
-        email: '',
-        dob: '',
-        phone: '',
-        graduationYear: '',
-        specialization: '',
-        totalExperienceYears: '',
-      });
-    } catch (error) {
-      alert('An error occurred while saving the lead.');
-      console.error('Submit error:', error);
+      new URL(url);
+      return true;
+    } catch (_) {
+      return false;
     }
   };
+
+  if (!isValidURL(resume)) {
+    alert('Please enter a valid URL for your resume.');
+    return;
+  }
+
+  try {
+    const response = await fetch('http://localhost:5000/api/leads/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        dob,
+        phone,
+        graduationYear,
+        specialization,
+        totalExperienceYears,
+        resume,
+      }),
+    });
+
+    const responseData = await response.json();
+
+    if (!response.ok) {
+      console.error('Server error:', responseData);
+      alert(`Failed to save lead: ${responseData.message || 'Unknown error'}`);
+      return;
+    }
+
+    alert('Lead saved successfully!');
+    setFormData({
+      name: '',
+      email: '',
+      dob: '',
+      phone: '',
+      graduationYear: '',
+      specialization: '',
+      totalExperienceYears: '',
+      resume: '',
+    });
+  } catch (error) {
+    console.error('Submit error:', error);
+    alert('An unexpected error occurred while saving the lead.');
+  }
+};
 
 
 
@@ -294,6 +330,23 @@ const ContactSection = () => {
                     min={0}
                   />
                 </div>
+
+                {/* Resume Upload */}
+                <div>
+                  <label htmlFor="resume" className="block text-gray-800 font-medium mb-2 text-sm sm:text-base">
+                    Paste Resume Link (Google Drive, Dropbox, etc.)
+                  </label>
+                  <input
+                    type="url"
+                    id="resume"
+                    name="resume"
+                    placeholder="https://drive.google.com/your-resume-link"
+                    onChange={handleInputChange}
+                    className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#e63852] focus:border-transparent transition-all duration-300 text-sm sm:text-base"
+                    required
+                  />
+                </div>
+
 
                 <button
                   type="submit"
