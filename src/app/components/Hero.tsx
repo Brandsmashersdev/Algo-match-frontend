@@ -6,6 +6,9 @@ const Hero = () => {
   return (
     <>
       {/* Header */}
+
+
+    
       <header className="bg-white/95 backdrop-blur-sm shadow-lg fixed top-0 left-0 right-0 z-50 border-b border-gray-100">
         <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 py-3 sm:py-4 flex justify-between items-center">
           <div className="flex items-center">
@@ -42,6 +45,8 @@ const Hero = () => {
             </a>
           </nav>
 
+
+    
           <div className="flex items-center space-x-2 sm:space-x-4">
             <a href="#contactus">
               <button className="bg-gradient-to-r from-red-500 to-red-600 text-white px-3 py-2 sm:px-4 sm:py-2.5 lg:px-6 lg:py-2.5 rounded-full shadow-lg hover:from-red-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 font-medium whitespace-nowrap text-xs sm:text-sm lg:text-base hidden sm:block">
@@ -107,23 +112,25 @@ const Hero = () => {
                 {/* Badge - Responsive */}
                 <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-red-50 border border-red-100 rounded-full shadow-sm">
                   <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-500 rounded-full mr-2 sm:mr-3 animate-pulse"></span>
-                  <span className="text-red-600 text-xs sm:text-sm font-semibold tracking-wide">PAY ONLY AFTER PLACEMENT</span>
+                  <span className="text-red-600 text-xs sm:text-sm font-semibold tracking-wide">Scalable Talent 
+On-Demand Performance-Ready</span>
                 </div>
 
                 {/* Main Heading - Highly Responsive */}
                 <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-gray-900 leading-tight">
-                  Welcome to
-                  <span className="block bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent mt-1 sm:mt-2">
+                  Algo Match
+                  {/* <span className="block bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent mt-1 sm:mt-2">
                     Algo Match
-                  </span>
+                  </span> */}
                   <span className="block text-gray-700 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-light mt-1 sm:mt-2">
-                    Your Guaranteed Path to an IT Job
+                    Instant Tech Talent. Seamless Integration. Scalable Results.
+
                   </span>
                 </h1>
 
                 {/* Description - Responsive */}
                 <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 leading-relaxed max-w-full lg:max-w-2xl font-light px-2 sm:px-0">
-                  We're fixing what's broken in the traditional hiring process. No more uncertainty. No more layoff loops. Just pure opportunity. With Algo Match, you only pay <span className="font-semibold text-red-600">after</span> you're placed. Simple, fair, and built for your success.
+                  <span className="font-semibold text-red-600">At Algo Match,</span>we empower businesses of all sizes—startups to enterprises—by providing <span className="font-semibold text-red-600">pre-vetted IT professionals</span>who integrate smoothly with your internal team. Whether you need a single developer or an entire squad, we've got you covered.
                 </p>
               </div>
 
@@ -154,8 +161,8 @@ const Hero = () => {
                       </div>
                       {/* Text - Responsive */}
                       <div className="space-y-1 sm:space-y-2">
-                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">Start Risk-Free</h3>
-                        <p className="text-sm sm:text-base text-gray-600 font-light">Pay only after you get placed</p>
+                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800">Looking for high-performance IT talent on demand?</h3>
+                        <p className="text-sm sm:text-base text-gray-600 font-light">Algo Match Can Be a Solution</p>
                       </div>
                     </div>
                   </div>
